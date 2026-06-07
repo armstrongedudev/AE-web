@@ -1,0 +1,162 @@
+/* /login card contents — the AuthLayout provides .auth__card around this. */
+
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.login__mark {
+  width: 36px;
+  height: 30px;
+  object-fit: contain;
+}
+.login__wordmark {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.login__title {
+  margin: 0 0 6px;
+}
+.login__sub {
+  margin: 0 0 22px;
+}
+
+/* OAuth providers */
+.login__oauth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login__oauth-btn {
+  width: 100%;
+}
+
+/* divider */
+.login__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--muted-foreground);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+.login__divider::before,
+.login__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--hairline);
+}
+
+/* email + password form */
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+.login__formrow {
+  display: flex;
+  justify-content: flex-end;
+  margin: -6px 0 16px;
+}
+.login__link {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--forest);
+  text-decoration: none;
+}
+.login__link:hover {
+  text-decoration: underline;
+}
+.login__link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.login__signup {
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+/* two-path chooser */
+.login__paths {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+.login__paths-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.login__paths-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login__path {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-control);
+  background: var(--surface-card);
+  text-decoration: none;
+  color: var(--ink);
+}
+.login__path:hover {
+  background: var(--surface-mint);
+  border-color: var(--forest);
+}
+.login__path:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 1px;
+}
+.login__path-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-control);
+  background: var(--accent-soft);
+  color: var(--on-accent-soft);
+}
+.login__path-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.login__path-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+}
+.login__path-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--muted-foreground);
+  line-height: 1.4;
+}
+.login__path-arrow {
+  flex: 0 0 auto;
+  color: var(--forest);
+}

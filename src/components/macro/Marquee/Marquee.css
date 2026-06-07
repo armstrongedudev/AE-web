@@ -1,0 +1,67 @@
+.aui-marquee {
+  --aui-marquee-duration: 30s;
+  --aui-marquee-gap: 16px;
+  --aui-marquee-direction: normal;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Edge fade via mask — both vendor + standard for Safari. */
+.aui-marquee--fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+/* The track holds two identical groups laid side by side, then is shifted by
+   exactly one group width (-50% of the track) so the loop is seamless. */
+.aui-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: var(--aui-marquee-gap);
+  animation: aui-marquee-scroll var(--aui-marquee-duration) linear infinite;
+  animation-direction: var(--aui-marquee-direction);
+  will-change: transform;
+}
+
+.aui-marquee:hover .aui-marquee__track {
+  animation-play-state: paused;
+}
+
+.aui-marquee__group {
+  display: flex;
+  flex: none;
+  gap: var(--aui-marquee-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aui-marquee__item {
+  flex: none;
+}
+
+@keyframes aui-marquee-scroll {
+  from { transform: translateX(0); }
+  /* shift left by one full group + the inter-group gap = exactly half the track */
+  to { transform: translateX(calc(-50% - (var(--aui-marquee-gap) / 2))); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aui-marquee__track {
+    animation: none;
+    /* allow manual scroll instead of motion */
+    overflow-x: auto;
+  }
+}

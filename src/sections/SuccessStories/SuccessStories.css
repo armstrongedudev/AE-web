@@ -1,0 +1,74 @@
+/* SuccessStories — "casos de éxito": SectionHeader + 3 case-study cards.
+   Reuses SectionHeader, Chip, Heading, Text. Responsive 3-up → 2-up → 1-up. */
+
+.aui-success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.aui-success__note {
+  margin: calc(var(--space-4) * -1) 0 0;
+  font-family: var(--font-inter);
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+.aui-success__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+/* ---- a case-study card ---- */
+.aui-case {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  height: 100%;
+  margin: 0;
+  padding: var(--space-6);
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  box-shadow: 0 1px 2px rgba(18, 76, 52, 0.04);
+}
+
+.aui-case__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+.aui-case__num { color: var(--primary); }
+.aui-case__story { color: var(--body); flex: 1; }
+
+.aui-case__by {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+.aui-case__dot {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-pill);
+  display: grid;
+  place-items: center;
+  flex: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--ink);
+}
+.aui-case__dot--mint { background: var(--mint); }
+.aui-case__dot--peach { background: var(--accent-soft); }
+.aui-case__dot--rose { background: var(--error-soft); }
+
+/* ---- responsive ---- */
+@media (max-width: 1023px) {
+  .aui-success__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 639px) {
+  .aui-success__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}

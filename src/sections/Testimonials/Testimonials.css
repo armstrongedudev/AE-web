@@ -1,0 +1,27 @@
+/* Testimonials run as a slow, seamless Marquee (see components/macro/Marquee).
+   The marquee handles the infinite loop, edge fade and pause-on-hover; here we
+   only size the cards and space the track. */
+
+.testimonials__marquee {
+  margin-top: var(--space-10);
+}
+
+/* Each card gets a fixed track width so the loop measures evenly. */
+.testimonials__marquee .aui-marquee__item {
+  width: 420px;
+  max-width: 82vw;
+}
+
+/* Cards stretch to equal height within the row. */
+.testimonials__marquee .aui-marquee__group {
+  align-items: stretch;
+}
+.testimonials__marquee .aui-marquee__item > * {
+  height: 100%;
+}
+
+@media (max-width: 639px) {
+  .testimonials__marquee .aui-marquee__item {
+    width: 300px;
+  }
+}

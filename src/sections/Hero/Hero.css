@@ -1,0 +1,184 @@
+/* Hero — Figma 288:1335. Radial green→cream gradient + blurred ellipses,
+   656px text block (with its own cream ellipse glow at the exact position),
+   masked Camille/chalkboard composite. max-width 1280. Responsive. */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 80px 48px; /* pt-30 · pb-12 · px-20 */
+  background-color: #fff7ec;
+  background-image: url("/brand/hero-bg.svg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---- decorative blurred ellipses (anchored to the edges so they hold across widths) ---- */
+.hero__blob {
+  position: absolute;
+  z-index: 0;
+  max-width: none;
+  pointer-events: none;
+}
+.hero__blob--2 { top: -161px; right: -765px; width: 1206px; height: 695px; }   /* green, top-right */
+.hero__blob--1r { top: -92px; right: -455px; width: 1603px; height: 349px; }   /* dark, right edge */
+.hero__blob--1l { top: -92px; left: -969px; width: 1603px; height: 349px; }    /* dark, left edge */
+
+/* ---- content ---- */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero__content {
+  position: relative;
+  flex: none;
+  width: 656px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8); /* 32 */
+}
+/* the text-block ellipse — EXACT Figma position (288:1341) */
+.hero__textglow {
+  position: absolute;
+  left: -373px;
+  top: -196.5px;
+  width: 1207px;
+  height: 735px;
+  max-width: none;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero__copy,
+.hero__ctas { position: relative; z-index: 1; }
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2); /* 8 */
+}
+.hero__headings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3); /* 12 */
+}
+.hero__eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: #e47c0c;
+}
+.hero__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 0.93;
+  letter-spacing: -0.96px;
+  color: #707070;
+}
+.hero__body {
+  margin: 0;
+  max-width: 452px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #066228;
+}
+
+/* ---- CTAs ---- */
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 7px 16px rgba(100, 100, 100, 0.1);
+  transition: filter 0.15s ease, background 0.15s ease;
+}
+.hero-btn--primary { background: #23a653; color: #fff; }
+.hero-btn--primary:hover { filter: brightness(0.96); }
+.hero-btn--ghost { background: var(--surface-card); color: #165c30; border-color: #bbe1c9; }
+.hero-btn--ghost:hover { background: var(--surface-mint); }
+.hero-btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* ---- media (Camille/chalkboard composite, fades into the gradient) ---- */
+.hero__media {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.hero__media img {
+  display: block;
+  width: 100%;
+  max-width: 630px;
+  height: auto;
+}
+
+/* ===========================================================================
+   TABLET (640–1023): keep two columns — copy left, Camille image right —
+   with the CTAs STACKED vertically (Figma Hero/tablet 472:1957).
+   =========================================================================== */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero { padding: 92px 40px 36px; }
+  .hero__inner { gap: var(--space-6); align-items: center; }
+  .hero__content { width: auto; flex: 1 1 46%; min-width: 0; max-width: 420px; }
+  .hero__title { font-size: 40px; line-height: 0.98; letter-spacing: -0.6px; }
+  .hero__body { font-size: 16px; }
+  /* stacked buttons, even width */
+  .hero__ctas { flex-direction: column; align-items: stretch; max-width: 220px; }
+  .hero-btn { justify-content: center; }
+  .hero__media { flex: 1 1 54%; justify-content: flex-end; }
+  .hero__media img { max-width: 100%; }
+  .hero__textglow { left: -260px; top: -150px; width: 900px; height: 560px; }
+  .hero__blob--2 { right: -880px; }
+}
+
+/* ===========================================================================
+   PHONE (≤639): single column — copy on top, image below; CTAs in a row.
+   (Figma Hero/phone 459:963)
+   =========================================================================== */
+@media (max-width: 639px) {
+  .hero { padding: 80px 20px 32px; }
+  .hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-8);
+    text-align: left;
+  }
+  .hero__content { width: 100%; max-width: 100%; }
+  .hero__title { font-size: 36px; line-height: 1; letter-spacing: -0.5px; }
+  .hero__body { font-size: 16px; max-width: 100%; }
+  /* side-by-side buttons that wrap if needed */
+  .hero__ctas { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .hero-btn { justify-content: center; }
+  .hero__textglow { left: -200px; top: -120px; width: 760px; height: 480px; }
+  .hero__media { width: 100%; justify-content: center; }
+  .hero__media img { max-width: 100%; }
+  .hero__blob--2 { right: -900px; }
+}

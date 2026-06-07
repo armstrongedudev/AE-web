@@ -1,0 +1,123 @@
+/* PricingCalculator v2 — "Compact panel" (Figma 409:1056).
+   Left: stacked cards (Attendees w/ ring-thumb slider · Method+State segmented ·
+   Hours steppers + Extras toggles). Right: radial summary with price + total + CTA. */
+
+.pcc {
+  display: flex;
+  gap: var(--space-3);
+  align-items: stretch;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.pcc__form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+
+.pcc-field {
+  background: var(--surface-card);
+  border-radius: var(--radius-modal); /* 24 */
+  box-shadow: 0 7px 32px rgba(100, 100, 100, 0.1);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.pcc-field__title { margin: 0; font-family: var(--font-sans); font-weight: 600; font-size: 24px; line-height: 1.1; color: var(--muted-foreground); }
+.pcc-field__sub { display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* ---- attendees slider ---- */
+.pcc-slider { position: relative; padding-top: 12px; }
+.pcc-slider__track {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 22px; padding: 0 16px; border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, #fff 0%, #ffeed6 23%, #fffad6 49%, #cbeee0 73%, #fff 96%);
+  font-family: var(--font-inter); font-size: 18px; color: #888;
+}
+.pcc-slider__thumb {
+  position: absolute; top: -10px; transform: translateX(-50%);
+  width: 48px; height: 48px; border-radius: var(--radius-lg);
+  background: var(--ring); color: var(--on-primary);
+  display: grid; place-items: center; pointer-events: none;
+}
+.pcc-slider__input {
+  position: absolute; inset: 0; width: 100%; height: 48px; top: -10px;
+  margin: 0; opacity: 0; cursor: pointer;
+}
+.pcc-slider__input:focus-visible + .pcc-slider__thumb { outline: 2px solid var(--ring); outline-offset: 2px; }
+.pcc-value { display: flex; align-items: center; gap: var(--space-2); }
+.pcc-value__chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 16px; border-radius: var(--radius-pill);
+  background: var(--surface-peach); color: var(--on-accent-soft);
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+}
+.pcc-value__n { font-family: var(--font-sans); font-weight: 600; font-size: 36px; letter-spacing: -0.18px; color: var(--ink); }
+.pcc-value__lbl { font-family: var(--font-inter); font-size: 18px; color: var(--ink); }
+
+/* ---- segmented control ---- */
+.pcc-seg { display: flex; gap: 6px; padding: 4px; border-radius: 12px; background: var(--mint); }
+.pcc-seg__btn {
+  flex: 1 1 0; min-width: 0; border: 0; cursor: pointer;
+  padding: 10px 14px; border-radius: 8px; background: transparent; color: var(--body);
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px; white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pcc-seg__btn[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); }
+.pcc-seg__btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* ---- hours (pill steppers) ---- */
+.pcc-hours { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+.pcc-hours__group { display: flex; flex-direction: column; gap: var(--space-2); }
+.pcc-hours__label { margin: 0; font-family: var(--font-sans); font-size: 16px; color: var(--body); }
+.pcc-stepper { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-1); border-radius: var(--radius-pill); background: var(--surface-mint); }
+.pcc-stepper__btn { width: 32px; height: 32px; flex: none; border: 0; cursor: pointer; border-radius: var(--radius-pill); background: var(--surface-card); color: var(--primary); display: grid; place-items: center; }
+.pcc-stepper__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pcc-stepper__btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.pcc-stepper__val { min-width: 40px; text-align: center; font-family: var(--font-inter); font-weight: 600; font-size: 16px; color: var(--ink); }
+
+/* ---- extras ---- */
+.pcc-extras { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.pcc-toggle {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: 8px 12px; border-radius: 8px; cursor: pointer;
+  background: var(--surface-card); border: 1px solid var(--hairline);
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px; color: var(--ink);
+}
+.pcc-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.pcc-toggle__box { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid #8a857c; display: grid; place-items: center; color: var(--on-primary); }
+.pcc-toggle input:checked + .pcc-toggle__box { background: var(--primary); border-color: var(--primary); }
+.pcc-toggle:has(input:focus-visible) { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* ---- summary ---- */
+.pcc-summary {
+  flex: 0 0 286px;
+  border-radius: var(--radius-modal);
+  box-shadow: 0 7px 32px rgba(100, 100, 100, 0.1);
+  padding: 28px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  background-color: var(--surface-mint);
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 286 679' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect width='286' height='679' fill='url(%23g)'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-5.8137e-7 -79.478 33.477 -0.0000059768 143 794.78)'><stop stop-color='rgb(245,245,247)' offset='0'/><stop stop-color='rgb(236,247,241)' offset='0.12'/><stop stop-color='rgb(245,245,247)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+.pcc-summary__price { display: flex; align-items: flex-end; gap: 4px; color: var(--muted-foreground); font-family: var(--font-sans); font-weight: 600; }
+.pcc-summary__price b { font-size: 56px; line-height: 0.95; letter-spacing: -1px; }
+.pcc-summary__price span { font-size: 18px; }
+.pcc-summary__bottom { display: flex; flex-direction: column; gap: var(--space-6); }
+.pcc-summary__total { display: flex; flex-direction: column; gap: var(--space-1); color: #3e8a6b; }
+.pcc-summary__total .lbl, .pcc-summary__total .for { font-family: var(--font-inter); font-size: 18px; }
+.pcc-summary__total b { font-family: var(--font-sans); font-weight: 600; font-size: 36px; letter-spacing: -0.18px; }
+.pcc-save {
+  background: var(--surface-card); border: 1px solid var(--hairline-strong); border-radius: 8px;
+  padding: 6px 16px; font-family: var(--font-sans); font-size: 16px; color: #3e8a6b; line-height: 1.5;
+}
+.pcc-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  height: 51px; padding: 14px 28px; border-radius: var(--radius-control); border: 0; cursor: pointer;
+  background: var(--cta); color: #fff; text-decoration: none;
+  font-family: var(--font-sans); font-weight: 600; font-size: 16px;
+}
+.pcc-cta:hover { filter: brightness(0.97); }
+.pcc-cta:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  .pcc { flex-direction: column; }
+  .pcc-summary { flex-basis: auto; }
+}

@@ -1,0 +1,11 @@
+.aui-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  color: var(--star);
+  line-height: 0;
+}
+
+.aui-stars__empty {
+  color: var(--hairline-strong);
+}

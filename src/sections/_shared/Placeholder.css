@@ -1,0 +1,36 @@
+.ph {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+.ph--rounded { border-radius: var(--radius-card); }
+
+.ph--mint   { background: var(--surface-mint);  color: var(--on-mint); }
+.ph--peach  { background: var(--surface-peach); color: var(--on-accent-soft); }
+.ph--cream  { background: var(--surface-cream); color: var(--on-accent-soft); }
+.ph--forest { background: var(--forest);        color: var(--on-forest); }
+
+/* subtle diagonal texture so blocks read as image slots, not solid fills */
+.ph::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 14px,
+    rgba(0, 0, 0, 0.025) 14px 28px
+  );
+}
+.ph__label {
+  font: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.65;
+  padding: var(--space-2) var(--space-3);
+  text-align: center;
+}

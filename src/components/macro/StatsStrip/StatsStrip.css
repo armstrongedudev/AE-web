@@ -1,0 +1,43 @@
+/* StatsStrip — credentials band. Transparent (no card), stats spread edge-to-edge
+   with thin dividers between. No lateral padding. Matches Figma 288:2107. */
+.aui-statsstrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-6); /* 24 all sides — final design 288:2107 */
+  border-radius: var(--radius-card);
+}
+
+.aui-statsstrip__item {
+  flex: none;
+}
+
+/* thin vertical divider between stats */
+.aui-statsstrip__divider {
+  width: 1px;
+  height: 48px;
+  flex: none;
+  background: var(--hairline);
+}
+
+/* tablet: keep all four credentials in a single row (Figma 464:1281) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .aui-statsstrip {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .aui-statsstrip__divider { display: none; }
+}
+
+/* phone: 2×2 grid */
+@media (max-width: 639px) {
+  .aui-statsstrip {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--space-6) var(--space-8);
+  }
+  .aui-statsstrip__item { flex: 1 1 40%; }
+  .aui-statsstrip__divider { display: none; }
+}

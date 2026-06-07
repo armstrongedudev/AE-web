@@ -1,0 +1,41 @@
+/* ===========================================================================
+   Armstrong — Typography (mirrors Figma "Armstrong/*" text styles)
+   Load fonts (e.g. Google Fonts):
+   Source Sans 3 (400,500,600) · Inter (400,600)
+   =========================================================================== */
+
+:root {
+  --font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.t-display-xl { font-family: var(--font-sans); font-weight: 500; font-size: 96px; line-height: 0.93; letter-spacing: -1.5px; }
+.t-display    { font-family: var(--font-sans); font-weight: 500; font-size: 64px; line-height: 0.93; letter-spacing: -1.5px; }
+.t-h1         { font-family: var(--font-sans); font-weight: 600; font-size: 48px; line-height: 1.10; letter-spacing: -1px; }
+.t-h2         { font-family: var(--font-sans); font-weight: 600; font-size: 36px; line-height: 1.20; letter-spacing: -0.5px; }
+.t-h3         { font-family: var(--font-sans); font-weight: 600; font-size: 28px; line-height: 1.05; }
+.t-h4         { font-family: var(--font-sans); font-weight: 600; font-size: 24px; line-height: 1.10; }
+.t-body-lg    { font-family: var(--font-inter); font-weight: 400; font-size: 18px; line-height: 1.5; }
+.t-body-lg-bold { font-family: var(--font-inter); font-weight: 600; font-size: 16px; line-height: 1.5; }
+/* Body: Figma token carries letter-spacing 3px; set to normal for web legibility (DS audit). */
+.t-body       { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1.5; letter-spacing: 0; }
+.t-small      { font-family: var(--font-sans); font-weight: 400; font-size: 14px; line-height: 1.5; }
+.t-caption    { font-family: var(--font-sans); font-weight: 400; font-size: 12px; line-height: 1.45; }
+.t-button     { font-family: var(--font-sans); font-weight: 600; font-size: 16px; line-height: 1.2; }
+/* Eyebrow / pretitle — canonical style (matches Figma Armstrong/Eyebrow & "WHAT I OFFER"). */
+.t-eyebrow    { font-family: var(--font-sans); font-weight: 600; font-size: 12px; line-height: 1.2; letter-spacing: 0.96px; text-transform: uppercase; }
+
+/* Fluid clamps for responsive headings (desktop -> phone) */
+@media (max-width: 1023px) {
+  .t-display-xl { font-size: 72px; }
+  .t-display    { font-size: 52px; }
+  .t-h1 { font-size: 40px; }
+  .t-h2 { font-size: 30px; }
+}
+@media (max-width: 639px) {
+  .t-display-xl { font-size: 48px; }
+  .t-display    { font-size: 40px; }
+  .t-h1 { font-size: 32px; }
+  .t-h2 { font-size: 26px; }
+  .t-h3 { font-size: 24px; }
+}

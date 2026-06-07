@@ -1,0 +1,241 @@
+/* ===========================================================================
+   Armstrong Educational Services — Design Tokens
+   Generated from the Figma file "Amstrong Education" (1:1 parity).
+   Architecture: Primitives (raw) -> Semantic (roles, Light/Dark) -> components.
+   Components must ONLY use semantic tokens, never primitives directly.
+   =========================================================================== */
+
+:root {
+  /* ---------- PRIMITIVES · color/green ---------- */
+  --color-green-50:  #ecf7f1;
+  --color-green-100: #cbeee0;
+  --color-green-200: #9cdcc0;
+  --color-green-300: #63c49c;
+  --color-green-400: #2ba577;
+  --color-green-450: #3ba563; /* bright CTA/button green */
+  --color-green-500: #07875a;
+  --color-green-600: #006a3e; /* brand primary */
+  --color-green-700: #0a5635;
+  --color-green-800: #124c34; /* forest */
+  --color-green-900: #0a3a24;
+
+  /* ---------- PRIMITIVES · color/orange ---------- */
+  --color-orange-50:  #fff7ec; /* warm cream */
+  --color-orange-100: #ffefd2;
+  --color-orange-200: #fcd9a8;
+  --color-orange-300: #f7be73;
+  --color-orange-400: #f0a14e;
+  --color-orange-500: #e9923b; /* brand accent */
+  --color-orange-600: #d56801;
+  --color-orange-700: #a85102;
+  --color-orange-800: #7a3c01;
+  --color-orange-900: #522800;
+
+  /* ---------- PRIMITIVES · color/red ---------- */
+  --color-red-50:  #fcebeb;
+  --color-red-100: #f8d0d0;
+  --color-red-200: #f1a8a9;
+  --color-red-300: #e67779;
+  --color-red-400: #d74c4f;
+  --color-red-500: #c32e31;
+  --color-red-600: #b22124;
+  --color-red-700: #8f1a1c;
+  --color-red-800: #6e1416;
+  --color-red-900: #4d0e10;
+
+  /* ---------- PRIMITIVES · color/blue ---------- */
+  --color-blue-50:  #eff4f8;
+  --color-blue-100: #dce6ef;
+  --color-blue-200: #bccddd;
+  --color-blue-300: #93abc4;
+  --color-blue-400: #6b86a6;
+  --color-blue-500: #4e6b8c;
+  --color-blue-600: #3d5876;
+  --color-blue-700: #324862;
+  --color-blue-800: #2a3b50;
+  --color-blue-900: #1f2b3a;
+
+  /* ---------- PRIMITIVES · color/neutral (warm) ---------- */
+  --color-neutral-0:   #ffffff;
+  --color-neutral-50:  #fcfaf4;
+  --color-neutral-100: #f8f3e6;
+  --color-neutral-200: #e6e1d4;
+  --color-neutral-300: #d9d3c4;
+  --color-neutral-400: #b8b1a0;
+  --color-neutral-500: #8c8676;
+  --color-neutral-600: #635e52;
+  --color-neutral-700: #45413a;
+  --color-neutral-800: #2a2823;
+  --color-neutral-900: #1c1c16;
+  --color-neutral-950: #121210;
+
+  /* ---------- PRIMITIVES · space (4px grid) ---------- */
+  --space-0: 0px;
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-2-5: 10px;
+  --space-3: 12px;
+  --space-3-5: 14px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-22: 88px;
+  --space-24: 96px;
+  --space-30: 120px;
+
+  /* ---------- PRIMITIVES · radius ---------- */
+  --radius-none: 0px;
+  --radius-sm: 8px;   /* iOS-style: softer, larger radii */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+}
+
+/* ===========================================================================
+   SEMANTIC TOKENS — LIGHT (default)
+   =========================================================================== */
+:root,
+[data-theme="light"] {
+  /* Brand */
+  --primary: var(--color-green-600);
+  --primary-hover: var(--color-green-700);
+  --on-primary: var(--color-neutral-0);
+  --forest: var(--color-green-800);
+  --on-forest: var(--color-neutral-0);
+  --mint: var(--color-green-100);
+  --on-mint: var(--color-green-800);
+  --accent: var(--color-orange-500);
+  --accent-hover: var(--color-orange-600);
+  --on-accent: var(--color-neutral-0);
+  --accent-soft: var(--color-orange-100);
+  --on-accent-soft: var(--color-orange-800);
+  /* accent orange dark enough to use as TEXT on light surfaces (WCAG AA ≥4.5:1) */
+  --accent-ink: var(--color-orange-700);
+  --cta: var(--color-green-450);          /* bright CTA/button green */
+  --on-cta: var(--color-neutral-0);
+
+  /* Surfaces */
+  --background: #f5f5f7;
+  --surface-card: var(--color-neutral-0);
+  --surface-cream: var(--color-orange-50);
+  --surface-mint: var(--color-green-50);
+  --surface-peach: var(--color-orange-100);
+  --muted: var(--color-neutral-100);
+
+  /* Text */
+  --ink: var(--on-mint);            /* NOTE: audit flags this — currently forest green, not near-black */
+  --body: var(--color-neutral-700);
+  --muted-foreground: var(--color-neutral-500);
+
+  /* Borders & focus */
+  --hairline: var(--color-neutral-200);
+  --hairline-strong: var(--color-neutral-300);
+  --ring: var(--color-green-600);
+
+  /* State */
+  --star: var(--color-orange-400); /* lighter, brighter orange for ratings */
+  --destructive: var(--color-red-600);
+  --on-destructive: var(--color-neutral-0);
+  --success: var(--color-green-600);
+  --on-success: var(--color-neutral-0);
+  --success-soft: var(--color-green-50);
+  --on-success-soft: var(--color-green-800);
+  --warning: var(--color-orange-500);
+  --on-warning: var(--color-neutral-900);
+  --warning-soft: var(--color-orange-100);
+  --on-warning-soft: var(--color-orange-800);
+  --error: var(--color-red-600);
+  --on-error: var(--color-neutral-0);
+  --error-soft: var(--color-red-50);
+  --on-error-soft: var(--color-red-800);
+  --info: var(--color-blue-600);
+  --on-info: var(--color-neutral-0);
+  --info-soft: var(--color-blue-50);
+  --on-info-soft: var(--color-blue-800);
+
+  /* Semantic radius */
+  --radius-control: var(--radius-md);
+  --radius-card: var(--radius-lg);
+  --radius-modal: var(--radius-xl);
+  --radius-pill: var(--radius-full);
+
+  /* Semantic spacing */
+  --space-inset-sm: var(--space-3);
+  --space-inset-md: var(--space-4);
+  --space-inset-lg: var(--space-6);
+  --space-gap-sm: var(--space-2);
+  --space-gap-md: var(--space-4);
+  --space-stack: var(--space-3);
+  --space-section: var(--space-12);
+}
+
+/* ===========================================================================
+   SEMANTIC TOKENS — DARK
+   Inverts the neutral ramp and lifts brand colors one step for contrast.
+   =========================================================================== */
+[data-theme="dark"] {
+  --primary: var(--color-green-400);
+  --primary-hover: var(--color-green-300);
+  --on-primary: var(--color-green-900);
+  --forest: var(--color-green-200);
+  --on-forest: var(--color-green-900);
+  --mint: var(--color-green-800);
+  --on-mint: var(--color-green-100);
+  --accent: var(--color-orange-400);
+  --accent-hover: var(--color-orange-300);
+  --on-accent: var(--color-neutral-900);
+  --accent-soft: var(--color-orange-900);
+  --on-accent-soft: var(--color-orange-100);
+  /* on dark surfaces a lighter orange is the readable one */
+  --accent-ink: var(--color-orange-300);
+  --cta: var(--color-green-300);
+  --on-cta: var(--color-green-900);
+
+  --background: var(--color-neutral-950);
+  --surface-card: var(--color-neutral-900);
+  --surface-cream: var(--color-neutral-800);
+  --surface-mint: var(--color-green-900);
+  --surface-peach: var(--color-orange-900);
+  --muted: var(--color-neutral-800);
+
+  --ink: var(--color-neutral-50);
+  --body: var(--color-neutral-300);
+  --muted-foreground: var(--color-neutral-400);
+
+  --hairline: var(--color-neutral-800);
+  --hairline-strong: var(--color-neutral-700);
+  --ring: var(--color-green-400);
+
+  --star: var(--color-orange-400);
+  --destructive: var(--color-red-500);
+  --on-destructive: var(--color-neutral-0);
+  --success: var(--color-green-400);
+  --on-success: var(--color-green-900);
+  --success-soft: var(--color-green-900);
+  --on-success-soft: var(--color-green-100);
+  --warning: var(--color-orange-400);
+  --on-warning: var(--color-neutral-900);
+  --warning-soft: var(--color-orange-900);
+  --on-warning-soft: var(--color-orange-100);
+  --error: var(--color-red-500);
+  --on-error: var(--color-neutral-0);
+  --error-soft: var(--color-red-900);
+  --on-error-soft: var(--color-red-100);
+  --info: var(--color-blue-400);
+  --on-info: var(--color-blue-900);
+  --info-soft: var(--color-blue-900);
+  --on-info-soft: var(--color-blue-100);
+}

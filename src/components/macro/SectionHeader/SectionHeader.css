@@ -1,0 +1,19 @@
+.aui-sectionheader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.aui-sectionheader--center {
+  align-items: center;
+  text-align: center;
+}
+
+.aui-sectionheader--left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.aui-sectionheader__subtitle {
+  max-width: 60ch;
+}

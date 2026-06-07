@@ -1,0 +1,251 @@
+/* Programs hub page — composes the design system on top of the section
+   backgrounds. Each band is full-bleed; .programs-page__inner constrains to
+   the 1280 content column used across the site. */
+
+.programs-page__inner {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.programs-page__intro {
+  padding: 88px 80px 72px;
+}
+.programs-page__grid-band,
+.programs-page__workshops-band {
+  padding: 80px 80px;
+}
+.programs-page__cta {
+  padding: 88px 80px;
+}
+
+/* ---------- featured annual-packs banner ---------- */
+.programs-page__feature {
+  position: relative;
+  margin-top: var(--space-12);
+  padding: 44px;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(134deg, #419273 18.8%, #1d763e 99.94%);
+  box-shadow: 0 18px 44px rgba(29, 118, 62, 0.28);
+  overflow: hidden;
+}
+.programs-page__ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: var(--space-6);
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.programs-page__feature-grid {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.programs-page__feature-copy {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.programs-page__feature-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.15;
+  color: var(--on-primary);
+}
+.programs-page__feature-desc {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  color: var(--on-primary);
+}
+.programs-page__feature-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.programs-page__feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--mint);
+  color: var(--on-mint);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.programs-page__feature-cta {
+  flex: none;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+/* ghost "build your quote" sits on the green banner → force light text */
+.programs-page__feature-quote.aui-btn--ghost {
+  color: var(--on-primary);
+}
+.programs-page__feature-note {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- programs grid ---------- */
+.programs-page__cards {
+  list-style: none;
+  margin: var(--space-12) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+.programs-page__card-item {
+  display: flex;
+}
+.programs-page__card-item > .aui-offering {
+  width: 100%;
+}
+
+/* ---------- workshops teaser ---------- */
+.programs-page__workshops {
+  list-style: none;
+  margin: var(--space-12) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+.programs-page__workshop-item {
+  display: flex;
+}
+.programs-page__workshop-item > .aui-workshop {
+  width: 100%;
+}
+.programs-page__workshop-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- closing CTA ---------- */
+.programs-page__cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+.programs-page__cta-title {
+  margin: 0;
+  max-width: 720px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -0.18px;
+  color: var(--ink);
+}
+.programs-page__cta-desc {
+  margin: 0;
+  max-width: 620px;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--body);
+}
+.programs-page__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+.programs-page__cta-fine {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 0;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1023px) {
+  .programs-page__intro {
+    padding: 64px 40px 56px;
+  }
+  .programs-page__grid-band,
+  .programs-page__workshops-band,
+  .programs-page__cta {
+    padding: 64px 40px;
+  }
+  .programs-page__feature {
+    padding: 32px;
+  }
+  .programs-page__feature-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .programs-page__feature-cta {
+    width: 100%;
+  }
+  .programs-page__workshops {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .programs-page__intro {
+    padding: 48px 20px 40px;
+  }
+  .programs-page__grid-band,
+  .programs-page__workshops-band,
+  .programs-page__cta {
+    padding: 48px 20px;
+  }
+  .programs-page__feature {
+    padding: 24px;
+  }
+  .programs-page__feature-title {
+    font-size: 26px;
+  }
+  .programs-page__cards,
+  .programs-page__workshops {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .programs-page__cta-title {
+    font-size: 26px;
+  }
+  .programs-page__cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .programs-page__cta-actions .aui-btn {
+    width: 100%;
+  }
+}

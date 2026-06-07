@@ -1,0 +1,161 @@
+/* Navbar — floating rounded bar, 24px from top, capped to 1280 content width.
+   Implements Figma 140:7449. Sits over the hero (negative margin so it floats). */
+
+.aui-navbar {
+  position: sticky;
+  top: 24px;
+  z-index: 50;
+  margin-top: 24px;
+  margin-bottom: -88px; /* float over the hero: 24 (top) + 64 (bar) = 88 */
+  pointer-events: none; /* let gaps pass through; children re-enable */
+}
+
+.aui-navbar__container {
+  width: 100%;
+  max-width: 1440px;          /* 1440 - 2*80 gutter = 1280 bar on desktop */
+  margin-inline: auto;
+  padding-inline: 80px;
+  pointer-events: none;
+}
+
+/* ---- the bar ---- */
+.aui-navbar__bar {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-height: 64px;
+  padding: 0 14px 0 31px;
+  border-radius: 16px;
+  background: linear-gradient(
+    to right,
+    #ffffff 18.226%,
+    rgba(255, 255, 255, 0.62) 66.346%
+  );
+  -webkit-backdrop-filter: blur(11.5px);
+  backdrop-filter: blur(11.5px);
+}
+
+/* ---- logo (cropped to the AÉ mark) ---- */
+.aui-navbar__logo {
+  flex: none;
+  display: block;
+  position: relative;
+  width: 59px;
+  height: 48px;
+  overflow: hidden;
+}
+.aui-navbar__logo img {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  height: 48px;
+  width: auto;
+  max-width: none;
+}
+
+/* ---- links ---- */
+.aui-navbar__links {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.aui-navbar__link {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--body);
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.aui-navbar__link:hover { color: var(--primary); }
+
+/* ---- CTAs ---- */
+.aui-navbar__ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: none;
+}
+.aui-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 7px 16.05px rgba(100, 100, 100, 0.1);
+  transition: filter 0.15s ease, background 0.15s ease;
+}
+.aui-nav-btn--primary { background: var(--cta); color: var(--on-cta); } /* bright CTA green token */
+.aui-nav-btn--primary:hover { filter: brightness(0.96); }
+.aui-nav-btn--secondary { background: var(--surface-card); color: var(--primary); }
+.aui-nav-btn--secondary:hover { background: var(--surface-mint); }
+
+/* ---- hamburger toggle (hidden on desktop) ---- */
+.aui-navbar__toggle {
+  pointer-events: auto;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: var(--surface-card);
+  color: var(--ink);
+  box-shadow: 0 7px 16.05px rgba(100, 100, 100, 0.1);
+}
+
+/* ---- mobile dropdown ---- */
+.aui-navbar__menu {
+  pointer-events: auto;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--surface-card);
+  box-shadow: 0 12px 32px rgba(100, 100, 100, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.aui-navbar__menu-link {
+  padding: 12px;
+  font-family: var(--font-inter);
+  font-size: 18px;
+  color: var(--ink);
+  border-radius: 10px;
+}
+.aui-navbar__menu-link:hover { background: var(--surface-mint); }
+.aui-navbar__menu-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.aui-navbar__menu-ctas .aui-nav-btn { width: 100%; justify-content: center; }
+
+/* ---- responsive ---- */
+@media (max-width: 1023px) {
+  .aui-navbar__container { padding-inline: 40px; }
+  .aui-navbar__links,
+  .aui-navbar__ctas { display: none; }
+  .aui-navbar__toggle { display: inline-flex; }
+  .aui-navbar__logo { margin-right: auto; }
+}
+@media (max-width: 639px) {
+  .aui-navbar__container { padding-inline: 20px; }
+  .aui-navbar__bar { padding: 0 12px 0 20px; }
+}
+@media (min-width: 1024px) {
+  .aui-navbar__menu { display: none; }
+}

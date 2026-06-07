@@ -1,0 +1,25 @@
+# Internal design-system documentation — do not index or crawl.
+User-agent: *
+Disallow: /
+
+# Block common SEO crawlers / scrapers explicitly (Screaming Frog, ahrefs, semrush, etc.)
+User-agent: Screaming Frog SEO Spider
+Disallow: /
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: DotBot
+Disallow: /
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+
+# No sitemap is published for this site.

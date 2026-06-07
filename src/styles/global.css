@@ -1,0 +1,40 @@
+@import "../tokens/tokens.css";
+@import "./typography.css";
+@import "./section-backgrounds.css";
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--background);
+  color: var(--body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { max-width: 100%; display: block; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: var(--radius-sm); }
+
+/* ---- Layout container: content max-width 1280, responsive gutters ---- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 80px;
+}
+@media (max-width: 1023px) { .container { padding-inline: 40px; } }
+@media (max-width: 639px)  { .container { padding-inline: 20px; } }
+
+/* Section vertical rhythm */
+.section { padding-block: 96px; }
+@media (max-width: 639px) { .section { padding-block: 56px; } }
+
+/* Full-bleed warm/brand bands keep inner content at 1280 via .container */
+.band-cream { background: var(--surface-cream); }
+.band-mint  { background: var(--surface-mint); }

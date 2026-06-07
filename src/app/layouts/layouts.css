@@ -1,0 +1,157 @@
+/* Shells for the authenticated zone (app + admin) and auth pages.
+   Reuses the design-system tokens. Auth is not wired yet → a preview banner. */
+
+.preview-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--accent-soft);
+  color: var(--on-accent-soft);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ---- generic dashboard shell (app + admin) ---- */
+.shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  background: var(--background);
+}
+.shell__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px 16px;
+  border-right: 1px solid var(--hairline);
+  background: var(--surface-card);
+}
+.shell__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px 20px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--ink);
+}
+.shell__brand img { width: 40px; height: 32px; object-fit: contain; }
+.shell__navlabel {
+  padding: 16px 12px 6px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.shell__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-control);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--body);
+  cursor: pointer;
+}
+.shell__link:hover { background: var(--surface-mint); }
+.shell__link.is-active { background: var(--surface-mint); color: var(--forest); font-weight: 600; }
+.shell__main { min-width: 0; display: flex; flex-direction: column; }
+.shell__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--surface-card);
+}
+.shell__title { margin: 0; font-family: var(--font-sans); font-weight: 700; font-size: 20px; color: var(--ink); }
+.shell__content { padding: 32px; min-width: 0; }
+
+/* simple cards/tables reused across CMS pages */
+.panel {
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+.panel + .panel { margin-top: 20px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.kpi { background: var(--surface-card); border: 1px solid var(--hairline); border-radius: var(--radius-card); padding: 20px; }
+.kpi__n { font-family: var(--font-sans); font-weight: 700; font-size: 32px; color: var(--forest); }
+.kpi__l { font-family: var(--font-sans); font-size: 13px; color: var(--muted-foreground); }
+
+.data-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 14px; }
+.data-table th { text-align: left; padding: 10px 12px; color: var(--muted-foreground); font-weight: 600; border-bottom: 1px solid var(--hairline); white-space: nowrap; }
+.data-table td { padding: 12px; border-bottom: 1px solid var(--hairline); color: var(--ink); vertical-align: top; }
+.data-table tr:hover td { background: var(--surface-mint); }
+
+.badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 600; }
+.badge--new { background: var(--accent-soft); color: var(--on-accent-soft); }
+.badge--reviewed { background: var(--surface-mint); color: var(--forest); }
+.badge--sent, .badge--confirmed { background: var(--success-soft); color: var(--on-success-soft); }
+.badge--declined, .badge--cancelled { background: var(--error-soft); color: var(--on-error-soft); }
+.badge--read, .badge--pending { background: var(--muted); color: var(--muted-foreground); }
+
+/* ---- auth ---- */
+.auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+  background: radial-gradient(120% 100% at 50% 0%, var(--surface-mint) 0%, var(--background) 60%);
+}
+.auth__card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-modal);
+  padding: 32px;
+  box-shadow: 0 18px 44px rgba(60, 90, 70, 0.12);
+}
+
+/* form primitives */
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.field > label { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--ink); }
+.field > input, .field > textarea, .field > select {
+  font-family: var(--font-sans); font-size: 15px; color: var(--ink);
+  padding: 11px 13px; border: 1px solid var(--hairline-strong); border-radius: var(--radius-control);
+  background: var(--surface-card);
+}
+.field > input:focus, .field > textarea:focus, .field > select:focus { outline: 2px solid var(--ring); outline-offset: 1px; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px; border: 0; border-radius: var(--radius-control); cursor: pointer;
+  background: var(--cta); color: var(--on-cta);
+  font-family: var(--font-sans); font-weight: 600; font-size: 15px;
+}
+.btn-primary:hover { filter: brightness(0.97); }
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px; border: 1px solid var(--hairline-strong); border-radius: var(--radius-control); cursor: pointer;
+  background: var(--surface-card); color: var(--ink);
+  font-family: var(--font-sans); font-weight: 600; font-size: 15px;
+}
+.btn-ghost:hover { background: var(--surface-mint); }
+
+/* ---- responsive: collapse the dashboard sidebar ---- */
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; }
+  .shell__sidebar {
+    flex-direction: row; flex-wrap: wrap; align-items: center;
+    border-right: 0; border-bottom: 1px solid var(--hairline); padding: 12px 16px;
+  }
+  .shell__brand { padding: 4px 8px; width: 100%; }
+  .shell__navlabel { display: none; }
+  .shell__content { padding: 20px; }
+  .shell__topbar { padding: 14px 20px; }
+}

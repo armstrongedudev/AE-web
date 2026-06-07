@@ -1,0 +1,52 @@
+/* ===========================================================================
+   Section backgrounds — the ONLY allowed section background fills (Figma 332:978).
+   Soft gradients between cream (#fff7ec), white (#fff), gray (#f5f5f7) and
+   mint (#ecf7f1 / #edf7f1 / #237).
+   RULE (any background works on ANY section — they are NOT tied to the section
+   they're named after): chain by color. A background's TOP color must match the
+   color of the section ABOVE it (the outgoing section's bottom); its BOTTOM /
+   exit color must match the TOP color of the section BELOW. Reorder and reuse
+   freely — only the boundary matching matters, so the seams stay invisible.
+   Apply to a full-bleed section wrapper.
+   =========================================================================== */
+
+/* 1 · Methods — cream → white → cream (top & bottom: cream #fff7ec) */
+.section-bg--methods {
+  background: linear-gradient(
+    180deg,
+    #fff7ec 11.08%,
+    #ffffff 47.078%,
+    #ffffff 78.939%,
+    #fff7ec 96.635%
+  );
+}
+
+/* 2 · Programs — radial: gray base with a mint glow fading to cream */
+.section-bg--programs {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1280 821' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect width='1280' height='821' fill='url(%23g)'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30.267 -71.586 167.57 -37.769 942.67 726.24)'><stop stop-color='rgb(245,245,247)' offset='0.212'/><stop stop-color='rgb(237,247,241)' offset='0.752'/><stop stop-color='rgb(255,247,236)' offset='0.99'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* 3 · Workshops — radial: gray edges with a centered mint glow (top & bottom: gray) */
+.section-bg--workshops {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1280 692' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect width='1280' height='692' fill='url(%23g)'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-0.0000026019 -81 149.83 -0.0000060912 640 810)'><stop stop-color='rgb(245,245,247)' offset='0'/><stop stop-color='rgb(236,247,241)' offset='0.12'/><stop stop-color='rgb(245,245,247)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* 4 · Pricing — mint → cream → gray (top: mint #edf7f1, bottom: gray #f5f5f7) */
+.section-bg--pricing {
+  background: linear-gradient(
+    180deg,
+    #edf7f1 0.82671%,
+    #fff7ec 55.769%,
+    #fff7ec 75%,
+    #f5f5f7 97.115%
+  );
+}
+
+/* 5 · Testimonials — mint → cream (top: mint #ecf7f1, bottom: cream #fffcf4) */
+.section-bg--testimonials {
+  background: linear-gradient(180deg, #ecf7f1 0%, #fffcf4 100%);
+}

@@ -1,0 +1,203 @@
+/* Footer — replicates Figma 288:1917 exactly.
+   Radial cream→green background; left CTA block (cream side, dark text) + 3 link
+   columns (green side, white text); monospace copyright bar. */
+
+.aui-footer {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 80px 80px;
+  overflow: hidden;
+  background-color: var(--surface-cream);
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 507' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect width='1440' height='507' fill='url(%23g)'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-11.65 -38.557 164.42 -15.557 772 415.23)'><stop stop-color='rgb(40,162,84)' offset='0.856'/><stop stop-color='rgb(66,173,104)' offset='0.87'/><stop stop-color='rgb(93,184,124)' offset='0.883'/><stop stop-color='rgb(147,207,164)' offset='0.911'/><stop stop-color='rgb(200,229,204)' offset='0.939'/><stop stop-color='rgb(254,252,244)' offset='0.966'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.aui-footer__body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  max-width: 1280px;
+  width: 100%;
+}
+
+/* ---- left CTA block ---- */
+.aui-footer__cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 655px;
+  flex: none;
+}
+.aui-footer__cta > *:not(.aui-footer__glow) {
+  position: relative;
+  z-index: 1;
+}
+.aui-footer__glow {
+  position: absolute;
+  left: -373px;
+  top: -135px;
+  width: 1003px;
+  height: 695px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aui-footer__brandrow {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.aui-footer__logo {
+  position: relative;
+  width: 71px;
+  height: 57px;
+  overflow: hidden;
+  flex: none;
+}
+.aui-footer__logo img {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+.aui-footer__eyebrow {
+  margin: 0;
+  max-width: 160px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: #707070;
+}
+.aui-footer__tagline {
+  margin: 0;
+  max-width: 491px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #066228;
+}
+
+.aui-footer__ctas {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.aui-footer__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: #23a653;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 7px 16px rgba(100, 100, 100, 0.1);
+  transition: filter 0.15s ease, background 0.15s ease;
+}
+.aui-footer__btn:hover { filter: brightness(0.96); }
+.aui-footer__btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.aui-footer__btn--ghost {
+  background: var(--surface-card);
+  color: #165c30;
+  border-color: #bbe1c9;
+}
+.aui-footer__btn--ghost:hover { background: var(--surface-mint); filter: none; }
+
+/* ---- link columns (green side) ---- */
+.aui-footer__col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.aui-footer__col-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.05;
+  color: var(--on-primary); /* white */
+}
+.aui-footer__col-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.aui-footer__link {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--on-primary); /* white */
+  transition: opacity 0.15s ease;
+}
+.aui-footer__link:hover { opacity: 0.82; }
+
+/* ---- monospace copyright bar ---- */
+.aui-footer__copy {
+  width: 100%;
+  max-width: 1280px;
+  margin-top: var(--space-16);
+  padding: 12px 16px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+}
+.aui-footer__copy span {
+  font-family: ui-monospace, "SF Mono", "Geist Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 20px;
+  color: #888;
+}
+
+/* ---- responsive ----
+   Tablet & phone swap the desktop radial band for a vertical cream→green
+   gradient (Figma Footer variants 472:1667 / 472:1714): cream behind the CTA
+   block at the top, easing into solid green behind the link columns. */
+@media (max-width: 1023px) {
+  .aui-footer {
+    padding: 64px 40px 48px;
+    align-items: stretch;
+    /* cream top → green, transition just below the CTA block (tablet design) */
+    background-color: #28a254;
+    background-image: linear-gradient(172deg, #fffeee 0%, #fffeee 22%, #28a254 41%, #28a254 100%);
+  }
+  .aui-footer__glow { display: none; }
+  .aui-footer__body { flex-wrap: wrap; gap: var(--space-12) var(--space-10); }
+  .aui-footer__cta { width: 100%; gap: var(--space-6); }
+  .aui-footer__col { flex: 1 1 28%; gap: var(--space-6); }
+  .aui-footer__col-title { font-size: 24px; }
+  .aui-footer__col-links { gap: var(--space-5); }
+}
+@media (max-width: 639px) {
+  .aui-footer {
+    padding: 48px 24px 36px;
+    /* taller footer → cream only at the very top, green dominates */
+    background-image: linear-gradient(177deg, #fffeee 0%, #fffeee 7%, #28a254 24%, #28a254 100%);
+  }
+  .aui-footer__cta { gap: var(--space-5); }
+  .aui-footer__tagline { max-width: 100%; }
+  /* full-width stacked buttons */
+  .aui-footer__ctas { flex-direction: column; align-items: stretch; }
+  .aui-footer__btn { justify-content: center; padding: 15px 20px; }
+  .aui-footer__col { flex: 1 1 100%; }
+}

@@ -1,0 +1,92 @@
+/* Header row: section header on the left, "See all" CTA on the right. */
+.workshops__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+.workshops__seeall {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.workshops__seeall:hover { gap: 11px; }
+.workshops__seeall:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 4px; }
+
+/* Lateral, snap-scrolling rail (up to 7 cards + a trailing "see all" card). */
+.workshops__rail {
+  list-style: none;
+  margin: var(--space-10) 0 0;
+  padding: 4px 0 var(--space-4);
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* let cards bleed to the screen edge for a clear "more to the side" cue */
+  margin-inline: calc(-1 * var(--space-5));
+  padding-inline: var(--space-5);
+  scrollbar-width: thin;
+}
+.workshops__rail:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; border-radius: var(--radius-lg); }
+
+.workshops__slide {
+  flex: 0 0 320px;
+  max-width: 320px;
+  scroll-snap-align: start;
+  display: flex;
+}
+.workshops__slide > * { width: 100%; }
+
+/* Trailing "See all workshops" card at the end of the rail. */
+.workshops__slide--all { flex-basis: 240px; max-width: 240px; }
+.workshops__all-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  padding: 28px;
+  border-radius: var(--radius-card, 24px);
+  border: 1.5px dashed var(--hairline-strong);
+  background: transparent;
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 18px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.workshops__all-card:hover { background: var(--surface-mint); border-color: var(--primary); }
+.workshops__all-arrow {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--cta);
+  color: var(--on-cta);
+  align-items: center;
+  justify-content: center;
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+  .workshops__slide { flex-basis: 300px; max-width: 300px; }
+}
+
+/* phone → 1-and-a-bit peek */
+@media (max-width: 639px) {
+  .workshops__head { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+  .workshops__rail { margin-top: var(--space-8); }
+  .workshops__slide { flex-basis: 82%; max-width: 82%; }
+}
+
+/* reduced motion: keep scroll but drop snapping smoothness */
+@media (prefers-reduced-motion: reduce) {
+  .workshops__rail { scroll-behavior: auto; }
+}

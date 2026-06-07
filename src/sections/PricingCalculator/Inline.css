@@ -1,0 +1,68 @@
+/* PricingCalculator v3 — "Inline / embeddable" bar (Figma 409:1059).
+   One wrapping row: method chips · attendees stepper · hours stepper · group pill ·
+   spacer · price · CTA. Drops into any page. */
+
+.pci {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 7px 24px rgba(100, 100, 100, 0.1);
+}
+
+/* method chips in a muted track */
+.pci-methods { display: flex; gap: 4px; padding: 4px; border-radius: 12px; background: var(--muted); }
+.pci-method {
+  border: 0; cursor: pointer; padding: 8px 14px; border-radius: 12px;
+  background: var(--mint); color: var(--ink);
+  font-family: var(--font-sans); font-weight: 600; font-size: 13px; white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pci-method[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); }
+.pci-method:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* pill stepper */
+.pci-stepper { display: inline-flex; align-items: center; gap: 4px; padding: 3px; border-radius: var(--radius-pill); background: var(--surface-mint); }
+.pci-stepper__btn { width: 32px; height: 32px; flex: none; border: 0; cursor: pointer; border-radius: var(--radius-pill); background: var(--surface-card); color: var(--primary); display: grid; place-items: center; }
+.pci-stepper__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pci-stepper__btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.pci-stepper__val { display: inline-flex; align-items: baseline; gap: 5px; padding: 0 8px; color: var(--on-mint); font-family: var(--font-sans); font-weight: 600; white-space: nowrap; }
+.pci-stepper__val b { font-size: 15px; font-weight: 600; }
+.pci-stepper__val span { font-size: 13px; opacity: 0.85; }
+
+/* group discount pill */
+.pci-group {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 16px; border-radius: var(--radius-pill);
+  background: var(--surface-peach); color: var(--on-accent-soft);
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px; white-space: nowrap;
+}
+
+.pci-spacer { flex: 1 1 0; min-width: 0; }
+
+/* price */
+.pci-price { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+.pci-price b { font-family: var(--font-sans); font-weight: 600; font-size: 28px; letter-spacing: -0.5px; color: var(--forest); }
+.pci-price span { font-family: var(--font-sans); font-size: 13px; color: var(--muted-foreground); }
+
+/* CTA */
+.pci-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: var(--radius-control); border: 0; cursor: pointer;
+  background: var(--cta); color: #fff; text-decoration: none;
+  font-family: var(--font-sans); font-weight: 600; font-size: 15px; white-space: nowrap;
+}
+.pci-cta:hover { filter: brightness(0.97); }
+.pci-cta:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  .pci-spacer { display: none; }
+}
+@media (max-width: 520px) {
+  .pci-methods, .pci-price { width: 100%; justify-content: center; }
+  .pci-cta { width: 100%; justify-content: center; }
+}

@@ -1,0 +1,96 @@
+.aui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control); /* iOS-style 12px on every button */
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+    transform 0.18s ease, box-shadow 0.18s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.aui-btn:active { transform: translateY(1px); }
+
+/* focus ring — visible keyboard focus on every variant */
+.aui-btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.aui-btn:disabled,
+.aui-btn[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* ---- sizes ---- */
+.aui-btn--sm { padding: var(--space-2) var(--space-4); font-size: 14px; }
+.aui-btn--md { padding: var(--space-3) var(--space-6); font-size: 16px; }
+.aui-btn--lg { padding: var(--space-4) var(--space-8); font-size: 18px; }
+
+.aui-btn--full { display: flex; width: 100%; }
+
+/* ---- primary ---- */
+.aui-btn--primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+.aui-btn--primary:hover { background: var(--primary-hover); }
+
+/* ---- secondary ---- */
+.aui-btn--secondary {
+  background: var(--surface-card);
+  color: var(--primary);
+  border-color: var(--hairline-strong);
+}
+.aui-btn--secondary:hover {
+  background: var(--surface-mint);
+  border-color: var(--primary);
+}
+
+/* ---- ghost ---- */
+.aui-btn--ghost {
+  background: transparent;
+  color: var(--primary);
+}
+.aui-btn--ghost:hover { background: var(--surface-mint); }
+
+/* ===========================================================================
+   SYSTEM BUTTONS — filled, rounded (not pill), elevated. From Figma 270:167.
+   Three colors (white / cta / forest) each with default · hover · disabled · focus.
+   =========================================================================== */
+.aui-btn--white,
+.aui-btn--cta,
+.aui-btn--forest {
+  border-radius: var(--radius-control); /* rounded rectangle, not pill */
+  box-shadow: 0 7px 16px rgba(100, 100, 100, 0.1);
+}
+
+/* white — light button with green label */
+.aui-btn--white {
+  background: var(--surface-card);
+  color: var(--primary);
+}
+.aui-btn--white:hover { background: var(--surface-cream); }
+
+/* cta — bright "clear green" primary action */
+.aui-btn--cta {
+  background: var(--cta);
+  color: var(--on-cta);
+}
+.aui-btn--cta:hover { background: var(--primary); }
+
+/* forest — deep "dark green" button */
+.aui-btn--forest {
+  background: var(--forest);
+  color: var(--on-forest);
+}
+.aui-btn--forest:hover { background: var(--body); }

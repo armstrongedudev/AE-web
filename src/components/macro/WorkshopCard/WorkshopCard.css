@@ -1,0 +1,67 @@
+/* WorkshopCard — Figma 140:7074. Cover image (650:433) fading to white at the
+   bottom, a white text tag pinned top-left, then forest title + body + Register CTA.
+   Rounded-xl (24), soft shadow, no border. */
+
+.aui-workshop {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-card);
+  border-radius: var(--radius-xl); /* 24 */
+  overflow: hidden;
+  box-shadow: 0 7px 32px rgba(100, 100, 100, 0.1);
+}
+
+.aui-workshop__media {
+  position: relative;
+  aspect-ratio: 650 / 433;
+  overflow: hidden;
+}
+.aui-workshop__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.aui-workshop__placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--surface-mint), var(--mint));
+}
+/* image fades into the card at the bottom */
+.aui-workshop__fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, var(--surface-card) 96%);
+}
+
+/* white pill tag, green text, no icon */
+.aui-workshop__tag {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border-radius: 20px;
+  background: var(--surface-card);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.aui-workshop__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4); /* 16 */
+  padding: 0 var(--space-8) var(--space-8); /* pt 0 · px 32 · pb 32 */
+}
+.aui-workshop__title {
+  color: var(--forest);
+}
+.aui-workshop__desc {
+  color: var(--body);
+  max-width: 400px;
+}

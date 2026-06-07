@@ -1,0 +1,27 @@
+.aui-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.aui-stat__img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex: none;
+}
+
+.aui-stat__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+
+.aui-stat__value {
+  color: var(--primary);
+}
+
+.aui-stat__label {
+  color: var(--body);
+}

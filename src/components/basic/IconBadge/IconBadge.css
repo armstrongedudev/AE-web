@@ -1,0 +1,20 @@
+.aui-iconbadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: var(--radius-md);
+}
+
+.aui-iconbadge--mint {
+  background: var(--mint);
+  color: var(--on-mint);
+}
+.aui-iconbadge--peach {
+  background: var(--surface-peach);
+  color: var(--on-accent-soft);
+}
+.aui-iconbadge--forest {
+  background: var(--forest);
+  color: var(--on-forest);
+}

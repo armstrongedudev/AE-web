@@ -1,0 +1,23 @@
+.aui-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--mint);
+  color: var(--on-mint);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.aui-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aui-avatar__initials {
+  user-select: none;
+}

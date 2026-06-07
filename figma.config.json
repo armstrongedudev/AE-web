@@ -1,0 +1,10 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "label": "React",
+    "include": ["src/components/**/*.figma.tsx"],
+    "documentUrlSubstitutions": {
+      "<ARMSTRONG_FILE>": "https://www.figma.com/design/ptXZAsCg3bkJhtTm7zu0Or/Amstrong-Education"
+    }
+  }
+}

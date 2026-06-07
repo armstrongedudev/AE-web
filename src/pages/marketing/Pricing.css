@@ -1,0 +1,399 @@
+/* Pricing — header + Calculator/Quiz toggle. Calculator path renders the
+   full <PricingCalculator/> section; Quiz path is a guided wizard that reuses
+   the same pricing engine via usePricing. */
+
+/* visually-hidden helper (local) */
+.pricing-quiz-section .sr-only,
+.pquiz .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- header ---- */
+.pricing-hero {
+  padding: 96px 80px 56px;
+}
+.pricing-hero__inner {
+  max-width: 760px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+.pricing-hero__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+}
+.pricing-hero__lede {
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ---- toggle ---- */
+.pricing-toggle {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+}
+.pricing-toggle__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--body);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pricing-toggle__btn[aria-selected="true"] {
+  background: var(--forest);
+  color: #fff;
+}
+.pricing-toggle__btn:hover[aria-selected="false"] {
+  background: var(--surface-mint);
+}
+
+/* ---- quiz section shell ---- */
+.pricing-quiz-section {
+  padding: 64px 80px 96px;
+}
+.pricing-quiz-section__inner {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* ---- quiz wizard ---- */
+.pquiz {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+.pquiz__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.pquiz__progress {
+  flex: 1 1 160px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-mint);
+  overflow: hidden;
+}
+.pquiz__progress span {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.pquiz__panel {
+  padding: var(--space-7);
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+}
+.pquiz__field {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.pquiz__q {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.pquiz__q svg {
+  color: var(--accent-ink);
+  flex: none;
+}
+
+.pquiz__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.pquiz__options--stack {
+  flex-direction: column;
+}
+
+.pquiz__option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  width: 100%;
+  min-height: 44px;
+  padding: 14px 18px;
+  background: var(--surface-cream);
+  border: 1.5px solid var(--hairline);
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.pquiz__option:hover {
+  border-color: var(--hairline-strong);
+}
+.pquiz__option[aria-pressed="true"] {
+  border-color: var(--forest);
+  background: var(--surface-mint);
+}
+.pquiz__option-label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+}
+.pquiz__option-hint {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.pquiz__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  background: var(--surface-cream);
+  border: 1.5px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.pquiz__chip:hover {
+  border-color: var(--hairline-strong);
+}
+.pquiz__chip[aria-pressed="true"] {
+  border-color: var(--forest);
+  background: var(--surface-mint);
+  color: var(--forest);
+}
+
+.pquiz__attendees {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+.pquiz__slider-label {
+  flex: 1 1 220px;
+  display: block;
+}
+.pquiz__slider-label input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+.pquiz__note {
+  margin: var(--space-4) 0 0;
+}
+
+/* ---- nav ---- */
+.pquiz__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.pquiz__done {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--forest);
+}
+
+/* ---- quote summary ---- */
+.pquote {
+  padding: var(--space-6);
+  background: var(--surface-mint);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.pquote__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.pquote__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pquote__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-control);
+  background: #fff;
+  color: var(--forest);
+}
+.pquote__price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1;
+}
+.pquote__price b {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--forest);
+}
+.pquote__price span {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.pquote__extras {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding-block: var(--space-3);
+}
+.pquote__extras li {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--body);
+}
+
+.pquote__bar {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--body);
+}
+.pquote__bar b {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.pquote__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.pquote__login-note {
+  margin: 0;
+}
+
+/* ---- info band ---- */
+.pricing-info {
+  padding: 96px 80px;
+  background: var(--surface-cream);
+}
+.pricing-info__inner {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+.pricing-info__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  color: var(--ink);
+}
+.pricing-info__lede {
+  margin: 0;
+  max-width: 56ch;
+}
+.pricing-info__actions {
+  margin-top: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+/* ---- focus visibility ---- */
+.pricing-toggle__btn:focus-visible,
+.pquiz__option:focus-visible,
+.pquiz__chip:focus-visible,
+.pquiz__slider-label input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 1023px) {
+  .pricing-hero { padding: 72px 40px 48px; }
+  .pricing-hero__title { font-size: 36px; }
+  .pricing-quiz-section { padding: 48px 40px 72px; }
+  .pricing-info { padding: 72px 40px; }
+}
+@media (max-width: 639px) {
+  .pricing-hero { padding: 56px 20px 40px; }
+  .pricing-hero__title { font-size: 30px; }
+  .pricing-toggle { width: 100%; }
+  .pricing-toggle__btn { flex: 1; justify-content: center; padding: 0 12px; }
+  .pricing-quiz-section { padding: 40px 20px 56px; }
+  .pquiz__panel { padding: var(--space-5); }
+  .pquiz__q { font-size: 19px; }
+  .pquote__price b { font-size: 26px; }
+  .pquote__actions { flex-direction: column; }
+  .pricing-info { padding: 56px 20px; }
+  .pricing-info__title { font-size: 28px; }
+  .pricing-info__actions { flex-direction: column; align-self: stretch; }
+}
